@@ -311,60 +311,9 @@ Resources:
       DestinationSecurityGroupId: !Ref WorkloadSecurityGroup
       ToPort: 80
 
-  WorkloadInstanceRole:
-    Type: AWS::IAM::Role
-    Properties:
-      AssumeRolePolicyDocument:
-        Statement:
-        - Effect: Allow
-          Principal:
-            Service:
-            - ec2.amazonaws.com
-          Action:
-          - sts:AssumeRole
-      ManagedPolicyArns:
-        - "arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore"
-      # Policies:
-      #   - PolicyName: cloudwatch-logs
-      #     PolicyDocument:
-      #       Version: '2012-10-17'
-      #       Statement:
-      #         -
-      #           Effect: Allow
-      #           Action:
-      #             - 'logs:CreateLogGroup'
-      #             - 'logs:CreateLogStream'
-      #             - 'logs:PutLogEvents'
-      #             - 'logs:DescribeLogStreams'
-      #             - 'logs:DescribeLogGroups'
-      #           Resource: 'arn:aws:logs:*:*:*'
-        # - PolicyName: cloudwatch-logs-ssm-session-log-extras
-        #   PolicyDocument:
-        #     Version: '2012-10-17'
-        #     Statement:
-        #       - Effect: Allow
-        #         Action:
-        #           - kms:GenerateDataKey
-        #         Resource: !ImportValue fstar-ssm-sm-logs-resources-KeyArn  # This is an existing KMS key 
-        # - PolicyName: cloudwatch-metrics
-        #   PolicyDocument:
-        #     Version: "2012-10-17"
-        #     Statement:
-        #       - Effect: Allow
-        #         Action:
-        #           - "cloudwatch:PutMetricData"
-        #         Resource: "*"
-
-  WorkloadInstanceProfile:
-    Type: AWS::IAM::InstanceProfile
-    Properties: 
-      Roles: 
-        - !Ref WorkloadInstanceRole
-
   # WorkloadAppInstance1:
   #   Type: AWS::EC2::Instance
   #   Properties:
-  #     IamInstanceProfile: !Ref WorkloadInstanceProfile
   #     ImageId: !Ref Ami
   #     InstanceType: t3.nano
   #     SecurityGroupIds:
@@ -374,7 +323,6 @@ Resources:
   # WorkloadAppInstance2:
   #   Type: AWS::EC2::Instance
   #   Properties:
-  #     IamInstanceProfile: !Ref WorkloadInstanceProfile
   #     ImageId: !Ref Ami
   #     InstanceType: t3.nano
   #     SecurityGroupIds:
@@ -384,7 +332,6 @@ Resources:
   # WorkloadAppInstance3:
   #   Type: AWS::EC2::Instance
   #   Properties:
-  #     IamInstanceProfile: !Ref WorkloadInstanceProfile
   #     ImageId: !Ref Ami
   #     InstanceType: t3.nano
   #     SecurityGroupIds:
