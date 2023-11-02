@@ -262,11 +262,6 @@ Resources:
 
   PublicLoadBalancerSecurityGroup:
     Type: AWS::EC2::SecurityGroup
-    Metadata:
-      cfn_nag:
-        rules_to_suppress:
-          - id: W9
-          - id: W2
     Properties: 
       GroupDescription: PublicLoadBalancerSecurityGroup
       SecurityGroupIngress: 
@@ -428,16 +423,16 @@ Resources:
         - Id: !Ref WorkloadAppInstance3
           Port: 80
 
-  # ApplicationLoadBalancerHttpListener:
-  #   Type: AWS::ElasticLoadBalancingV2::Listener
-  #   Properties:
-  #     LoadBalancerArn: !Ref ApplicationLoadBalancer
-  #     Port: 80
-  #     Protocol: HTTP
-  #     DefaultActions:
-  #       - Order: 1
-  #         ForwardConfig:
-  #           TargetGroups:
-  #             - TargetGroupArn: !Ref TargetGroup
-  #               Weight: "100"
-  #         Type: forward
+  ApplicationLoadBalancerHttpListener:
+    Type: AWS::ElasticLoadBalancingV2::Listener
+    Properties:
+      LoadBalancerArn: !Ref ApplicationLoadBalancer
+      Port: 80
+      Protocol: HTTP
+      DefaultActions:
+        - Order: 1
+          ForwardConfig:
+            TargetGroups:
+              - TargetGroupArn: !Ref TargetGroup
+                Weight: "100"
+          Type: forward
