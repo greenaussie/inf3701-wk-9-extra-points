@@ -26,7 +26,11 @@ Within you AWS Acadamy learner AWS account, we will use AWS CloudShell to copy t
 
 ### Copy the resources from GitHub to your AWS account
 
+> As usual, we will work from the **N. Virgina** (us-east-1) region. Make sure you are in the **N. Virgina** region by selecting it from the drop down menu in the top right of the AWS Console.
+
 Open the AWS CloudShell by clicking on the icon in the top right of the AWS Console. It looks like this:
+
+![AWS CloudShell icon](cloudshell-link-in-aws-console.png)
 
 Open the template and the diagram next to each other in separate tabs or Windows, so you can see how the template describes the infrastructure.
 
@@ -38,11 +42,15 @@ We can show the IAM role attached to the AWS CloudShell by typing the following 
 aws sts get-caller-identity
 ```
 
+![Example reponse from AWS CLI](aws-sts-get-caller-identity.png)
+
 On the command line, clone the GitHub repository containing the resources for this lab:
 
 ```bash
 git clone https://github.com/greenaussie/inf3701-wk-9-extra-points.git
 ```
+
+![git clone command](git-clone.png)
 
 We can see the files have copied with a command such as this:
 
@@ -75,6 +83,8 @@ scripts/deploy.sh
 
 While the stack is being deployed, you can view the progress in the AWS Console. Go to the CloudFormation service, and click on the stack. You will see the status of the stack change from `CREATE_IN_PROGRESS` to `CREATE_COMPLETE`.
 
+> You may see other stacks which have already been deployed. These are stacks which have been deployed to prepare the learner environment.
+
 Once the stack has been created, you can view the resources which have been created. You can see the VPC, the subnets, the route tables, the internet gateway, the NAT gateway, the security groups, and the EC2 instances.
 
 The website address is shown in the Outputs tab. Click on the link to view the website. You will see a simple web page, which is being served by the one of the three EC2 instances. Running multiple instances allows us to distribute the load across multiple instances, and also provides redundancy in case one of the instances fails
@@ -94,6 +104,15 @@ Update the cloudformation template to deploy a an additional EC2 instance in eac
 
 - The new EC2 instances should be added as additional targets within the target goups.
 - Re-deploy the stack to create the new EC2 instances
+
+To update the template you can use a CLI editor within CloudShell, which is called `nano`. You can open the template with the following command:
+
+```bash
+nano cloudformation-templates/infrastructure.yml
+```
+
+You can navigate around the template within `nano` using the arrow keys. You can edit the template, and save it with the changes, by using the ket combinations which are displayed at the bottom of the editor's work area.
+
 
 **To gain the extra mark, you must show the tutor that you have deployed the additional EC2 instances and they are attached to the target group:**
 
