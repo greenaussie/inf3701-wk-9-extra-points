@@ -321,7 +321,7 @@ Resources:
       SubnetId: !Ref SubnetPrivateA
       Tags:
            - Key: Name
-             Value: WorkloadAppInstance3
+             Value: WorkloadAppInstance1
       UserData: !Base64 |
         #!/bin/bash
         INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
@@ -344,7 +344,7 @@ Resources:
       SubnetId: !Ref SubnetPrivateB
       Tags:
            - Key: Name
-             Value: WorkloadAppInstance3
+             Value: WorkloadAppInstance2
       UserData: !Base64 |
         #!/bin/bash
         INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
