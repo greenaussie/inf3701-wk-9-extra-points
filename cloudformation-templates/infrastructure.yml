@@ -274,14 +274,6 @@ Resources:
 
   WorkloadSecurityGroup:
     Type: AWS::EC2::SecurityGroup
-    Metadata:
-      cfn-lint:
-        config:
-          ignore_checks:
-            - E3001
-      cfn_nag:
-        rules_to_suppress:
-          - id: F1000
     Properties:
       GroupDescription: WorkloadSecurityGroup
       VpcId:  !Ref Vpc
@@ -305,6 +297,11 @@ Resources:
       IpProtocol: TCP
       DestinationSecurityGroupId: !Ref WorkloadSecurityGroup
       ToPort: 80
+
+  WorkloadKeyPair:
+    Type: AWS::EC2::KeyPair
+    Properties:
+      KeyName: WorkloadKeyPair
 
   WorkloadAppInstance1:
     Type: AWS::EC2::Instance
@@ -436,3 +433,37 @@ Resources:
               - TargetGroupArn: !Ref TargetGroup
                 Weight: "100"
           Type: forward
+
+  BastionHostSecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties: 
+      GroupDescription: BastionHostSecurityGroup
+      SecurityGroupIngress: 
+        - CidrIp: 0.0.0.0/8
+          Description: BastionHostIngressPort22
+          FromPort: 22
+          IpProtocol: TCP
+          ToPort: 22
+      SecurityGroupEgress:
+        - IpProtocol: tcp
+          FromPort: 22
+          ToPort: 22
+          DestinationSecurityGroupId: !Ref WorkloadSecurityGroup
+      VpcId: !Ref Vpc
+
+  BastionHost:
+    Type: AWS::EC2::Instance
+    Properties:
+      ImageId: !Ref Ami
+      InstanceType: t3.nano
+      KeyName: !Ref WorkloadKeyPair
+      SecurityGroupIds:
+        - !Ref BastionHostSecurityGroup
+      SubnetId: !Ref SubnetPublicA
+      Tags:
+           - Key: Name
+             Value: BastionHostAzA
+      UserData: !Base64 |
+        #!/bin/bash
+        yum update -y
+
