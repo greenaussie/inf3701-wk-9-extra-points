@@ -470,4 +470,4 @@ Resources:
 Outputs:
   WorkloadKeyPairId:
     Description: KeyPairId
-    Value: !Ref WorkloadKeyPair
+    Value: !GetAtt  WorkloadKeyPair.KeyPairId
