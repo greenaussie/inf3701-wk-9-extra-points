@@ -27,6 +27,10 @@ Parameters:
     Description: AWS public ssm parameter path containing the AMI ID
     Type: AWS::SSM::Parameter::Value<String>
     Default: /aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-ebs
+  InstanceType:
+    Description: Instance type for the workload instances
+    Type: String
+    Default: t3.nano
   AvailabilityZone1:
     Type: String
     Default: us-east-1a
@@ -307,7 +311,7 @@ Resources:
     Type: AWS::EC2::Instance
     Properties:
       ImageId: !Ref Ami
-      InstanceType: t3.nano
+      InstanceType: !Ref InstanceType
       KeyName: !Ref WorkloadKeyPair
       SecurityGroupIds:
         - !Ref WorkloadSecurityGroup
@@ -331,7 +335,7 @@ Resources:
     Type: AWS::EC2::Instance
     Properties:
       ImageId: !Ref Ami
-      InstanceType: t3.nano
+      InstanceType: !Ref InstanceType
       KeyName: !Ref WorkloadKeyPair
       SecurityGroupIds:
         - !Ref WorkloadSecurityGroup
@@ -355,7 +359,7 @@ Resources:
     Type: AWS::EC2::Instance
     Properties:
       ImageId: !Ref Ami
-      InstanceType: t3.nano
+      InstanceType: !Ref InstanceType
       KeyName: !Ref WorkloadKeyPair
       SecurityGroupIds:
         - !Ref WorkloadSecurityGroup
