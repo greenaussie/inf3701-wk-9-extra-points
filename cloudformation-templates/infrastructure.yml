@@ -442,7 +442,7 @@ Resources:
     Properties: 
       GroupDescription: BastionHostSecurityGroup
       SecurityGroupIngress: 
-        - CidrIp: 0.0.0.0/8
+        - CidrIp: 0.0.0.0/0
           Description: BastionHostIngressPort22
           FromPort: 22
           IpProtocol: TCP
