@@ -498,3 +498,7 @@ Outputs:
   BastionHostPublicIp:
     Description: IP address of bastion host
     Value: !GetAtt BastionHost.PublicIp
+
+  WebsiteUrl:
+    Description: URL of the website
+    Value: !Sub http://${ApplicationLoadBalancer.DNSName}

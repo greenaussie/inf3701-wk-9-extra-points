@@ -100,6 +100,13 @@ The website address is shown in the Outputs tab. Click on the link to view the w
 **To gain the marking points for this lab, you must show the tutor that you have deployed the CloudFormation stack, and that you can view the website.**
 
 
+### View the website
+
+The new website URL is accessed through the Application Load Balancer.
+
+The website URL is available as an output from the CloudFormation stack. You can view the outputs by selecting the stack in the AWS Console, and clicking on the Outputs tab.
+
+
 ### Challenge (1 extra mark) - horizontally scale the application resources
 
 > The term Horizontal Scaling refers to adding more resources to a system, such as adding more EC2 instances to a web server. This is in contrast to Vertical Scaling, which refers to adding more resources to an existing resource, such as adding more memory to an EC2 instance.
