@@ -278,10 +278,10 @@ Resources:
       GroupDescription: WorkloadSecurityGroup
       VpcId:  !Ref Vpc
 
-  WorkloadSecurityGroupIngressRule:
+  WorkloadSecurityGroupIngressRuleHttp:
     Type: AWS::EC2::SecurityGroupIngress
     Properties: 
-      Description: WorkloadSecurityGroupIngressRule
+      Description: WorkloadSecurityGroupIngressRuleHttp
       FromPort: 80
       GroupId: !Ref WorkloadSecurityGroup
       IpProtocol: TCP
@@ -478,6 +478,17 @@ Resources:
       UserData: !Base64 |
         #!/bin/bash
         yum update -y
+
+  WorkloadSecurityGroupIngressRuleBastionSsh:
+    Type: AWS::EC2::SecurityGroupIngress
+    Properties: 
+      Description: WorkloadSecurityGroupIngressRuleBastionSsh
+      FromPort: 22
+      GroupId: !Ref WorkloadSecurityGroup
+      IpProtocol: TCP
+      SourceSecurityGroupId: !Ref BastionHostSecurityGroup
+      ToPort: 22
+
 
 Outputs:
   WorkloadKeyPairId:
