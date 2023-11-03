@@ -14,7 +14,7 @@ Infrastructure As Code (IaC) is a way of describing the infrastructure you want 
 
 The tool we have chosen to use is [AWS CloudFormation](https://aws.amazon.com/cloudformation/). CloudFormation is a declarative language for describing AWS infrastructure. It is a very powerful tool, and can be used to build almost any AWS infrastructure.
 
-The template `/home/richard/github/greenaussie/inf3701-wk-9-extra-points/cloudformation-templates/infrastructure.yml` is an example of a CloudFormation template. It describes the following infrastructure, whose resources have been covered in the course INF3701. This is a diagram of the infrastructure:
+The template `inf3701-wk-9-extra-points/cloudformation-templates/infrastructure.yml` is an example of a CloudFormation template. It describes the following infrastructure, whose resources have been covered in the course INF3701. This is a diagram of the infrastructure:
 
 ![Diagram of the infrastructure](inf3701-wk-9-extra-points.png)
 
