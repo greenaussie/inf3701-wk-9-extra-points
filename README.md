@@ -67,10 +67,10 @@ cd inf3701-wk-9-extra-points
 ```
 > Usually with CLI we carry out actions from the top level of the Git project directly.
 
-View the deployment script, `scripts/deploy.sh`. It is a bash script which will deploy the CloudFormation template. It is a simple script, but it is a good idea to look at it to understand what it is doing.
+View the deployment script, `scripts/010-deploy.sh`. It is a bash script which will deploy the CloudFormation template. It is a simple script, but it is a good idea to look at it to understand what it is doing.
 
 ```bash
-cat scripts/deploy.sh
+cat scripts/010-deploy.sh
 ```
 
 You can see commands which could be executed from the command line. However is we write a script to execute the command for us, it means we can more easily repeat a command, and, once we have tested it, we can be more confident that it will work the same way each time.
@@ -78,7 +78,7 @@ You can see commands which could be executed from the command line. However is w
 Deploy the CloudFormation stack by executing the script:
 
 ```bash
-scripts/deploy.sh
+scripts/010-deploy.sh
 ```
 
 While the stack is being deployed, you can view the progress in the AWS Console. Go to the CloudFormation service, and click on the stack. You will see the status of the stack change from `CREATE_IN_PROGRESS` to `CREATE_COMPLETE`.
@@ -130,7 +130,7 @@ Once you have finished with the stack, you can delete it. This will delete all t
 Delete the stack by executing the script:
 
 ```bash
-scripts/delete.sh
+scripts/099-delete.sh
 ```
 Alternatively you can select the stack in the AWS Console, and click the Delete button.
 

@@ -322,10 +322,10 @@ Resources:
         IPV4=$(curl -s http://169.254.169.254/latest/meta-data/local-ipv4)
         DATE=$(date)
         yum update -y
-        yum install -y nginx
+        amazon-linux-extras install nginx1 -y
         systemctl start nginx
         systemctl enable nginx
-        echo "<html><body><h1>Hello!</h1><p>INSTANCE_ID: $INSTANCE_ID></p><p>AZ: $AZ></p><p>IPV4: $IPV4></p></body></html>" > /var/www/html/index.html
+        echo -e "<html><head><title>INFS3701 demo IAC</title></head><style>html { color-scheme: light dark; } body { width: 35em; margin: 0 auto; font-family: Tahoma, Verdana, Arial, sans-serif; }</style><body><h1>Hello!</h1><p>INSTANCE_ID: $INSTANCE_ID></p><p>AZ: $AZ></p><p>IPV4: $IPV4></p></body></html>" > /var/www/html/index.html
 
   WorkloadAppInstance2:
     Type: AWS::EC2::Instance
