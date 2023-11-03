@@ -22,7 +22,7 @@ A collection of AWS Resources is called a stack. The resources typically have de
 
 There are various ways to deploy the templates. Here, we will use the AWS CLI. The AWS CLI is a command line tool for interacting with AWS. It is a very powerful tool, and can be used to do almost anything in AWS.
 
-Within you AWS Acadamy learner AWS account, we will use AWS CloudShell to copy the resources from GitHub to your AWS account.
+Within you **[AWS Acadamy learner AWS account](https://www.awsacademy.com/)**, we will use AWS CloudShell to copy the resources from GitHub to your AWS account.
 
 ### Copy the resources from GitHub to your AWS account
 

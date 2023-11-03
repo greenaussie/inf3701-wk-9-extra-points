@@ -55,7 +55,7 @@ Resources:
     Properties:
       AvailabilityZone: !Ref AvailabilityZone1
       CidrBlock: !Ref CidrSubnetPublicA
-      MapPublicIpOnLaunch: false
+      MapPublicIpOnLaunch: true
       VpcId: !Ref Vpc
       Tags:
         - Key: Name
@@ -66,7 +66,7 @@ Resources:
     Properties:
       AvailabilityZone: !Ref AvailabilityZone2
       CidrBlock: !Ref CidrSubnetPublicB
-      MapPublicIpOnLaunch: false
+      MapPublicIpOnLaunch: true
       VpcId: !Ref Vpc
       Tags:
         - Key: Name
@@ -77,7 +77,7 @@ Resources:
     Properties:
       AvailabilityZone: !Ref AvailabilityZone3
       CidrBlock: !Ref CidrSubnetPublicC
-      MapPublicIpOnLaunch: false
+      MapPublicIpOnLaunch: true
       VpcId: !Ref Vpc
       Tags:
         - Key: Name
@@ -308,6 +308,7 @@ Resources:
     Properties:
       ImageId: !Ref Ami
       InstanceType: t3.nano
+      KeyName: !Ref WorkloadKeyPair
       SecurityGroupIds:
         - !Ref WorkloadSecurityGroup
       SubnetId: !Ref SubnetPrivateA
@@ -331,6 +332,7 @@ Resources:
     Properties:
       ImageId: !Ref Ami
       InstanceType: t3.nano
+      KeyName: !Ref WorkloadKeyPair
       SecurityGroupIds:
         - !Ref WorkloadSecurityGroup
       SubnetId: !Ref SubnetPrivateB
@@ -354,6 +356,7 @@ Resources:
     Properties:
       ImageId: !Ref Ami
       InstanceType: t3.nano
+      KeyName: !Ref WorkloadKeyPair
       SecurityGroupIds:
         - !Ref WorkloadSecurityGroup
       SubnetId: !Ref SubnetPrivateC
@@ -471,3 +474,7 @@ Outputs:
   WorkloadKeyPairId:
     Description: KeyPairId
     Value: !GetAtt  WorkloadKeyPair.KeyPairId
+
+  BastionHostPublicIp:
+    Description: IP address of bastion host
+    Value: !GetAtt BastionHost.PublicIp
