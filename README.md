@@ -67,6 +67,12 @@ cd inf3701-wk-9-extra-points
 ```
 > Usually with CLI we carry out actions from the top level of the Git project directly.
 
+Take a minute to observe how we iteratively develop infrastrucure. We start with a simple template, and then we add more resources to it. We can then deploy the template, and see the resources being created in the AWS Console. We can then make changes to the template, and re-deploy it. We can see the changes being made to the infrastructure. 
+
+```bash
+git log --name-status
+```
+
 View the deployment script, `scripts/010-deploy.sh`. It is a bash script which will deploy the CloudFormation template. It is a simple script, but it is a good idea to look at it to understand what it is doing.
 
 ```bash
