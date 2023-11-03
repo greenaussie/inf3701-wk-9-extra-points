@@ -14,7 +14,34 @@ Infrastructure As Code (IaC) is a way of describing the infrastructure you want 
 
 The tool we have chosen to use is [AWS CloudFormation](https://aws.amazon.com/cloudformation/). CloudFormation is a declarative language for describing AWS infrastructure. It is a very powerful tool, and can be used to build almost any AWS infrastructure.
 
-The template `/home/richard/github/greenaussie/inf3701-wk-9-extra-points/cloudformation-templates/infrastructure.yml` is an example of a CloudFormation template. It describes the following infrastructure, whose resources have been covered in the course INF3701:
+The template `/home/richard/github/greenaussie/inf3701-wk-9-extra-points/cloudformation-templates/infrastructure.yml` is an example of a CloudFormation template. It describes the following infrastructure, whose resources have been covered in the course INF3701. This is a diagram of the infrastructure:
+
+![Diagram of the infrastructure](inf3701-wk-9-extra-points.png)
+
+The infrastructure consists of a number of resources including:
+
+- A VPC
+- Three public subnets, one in each availability zone
+- Three private subnets, one in each availability zone
+- A route table for the public subnets
+- A route table for the private subnets of each availability zone
+- An internet gateway
+- A NAT gateway in each availability zone
+- A security group for the EC2 instances
+- A security group for the Application Load Balancer
+- An Application Load Balancer
+- A target group for the Application Load Balancer
+- Three EC2 instances, one in each private subnet
+- A bastion host in the public subnet of the first availability zone
+
+Stack outputs are used to obtain the website URL, and the bastion host IP address.
+
+Various supporting scripts are provided to deploy the CloudFormation stack, and to delete it. The scripts are in the `scripts` directory. The scripts are numbered to indicate the order in which they should be executed. The scripts are:
+
+- `scripts/010-deploy.sh` - Deploy the CloudFormation stack
+- `scripts/020-start-ssh-agent-in-cloudshell.sh` - Start the ssh-agent
+- `scripts/030-ssh-to-bastion-host.sh` - SSH to the bastion host
+- `scripts/099-delete.sh` - Delete the CloudFormation stack
 
 ## Deploying the AWS Cloudformation Stack
 
