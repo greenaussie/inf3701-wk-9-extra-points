@@ -499,6 +499,18 @@ Outputs:
     Description: IP address of bastion host
     Value: !GetAtt BastionHost.PublicIp
 
+  WorkloadAppInstance1PrivateIp:
+    Description: Private IP address of workload app instance 1
+    Value: !GetAtt WorkloadAppInstance1.PrivateIp
+
+  WorkloadAppInstance2PrivateIp:
+    Description: Private IP address of workload app instance 1
+    Value: !GetAtt WorkloadAppInstance1.PrivateIp
+
+  WorkloadAppInstance3PrivateIp:
+    Description: Private IP address of workload app instance 1
+    Value: !GetAtt WorkloadAppInstance1.PrivateIp
+
   WebsiteUrl:
     Description: URL of the website
     Value: !Sub http://${ApplicationLoadBalancer.DNSName}
