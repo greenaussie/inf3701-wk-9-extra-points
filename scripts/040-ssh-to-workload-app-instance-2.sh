@@ -17,9 +17,9 @@ ssh-add ssh-private_key.pem
 # make sure you run scripts/020-start-ssl-agent-in-cloudshell.sh first to start the ssh agent
 
 
-WORKLOAD_APP_INSTANCE_1_PRIVATE_IP=$(aws cloudformation describe-stacks \
+WORKLOAD_APP_INSTANCE_2_PRIVATE_IP=$(aws cloudformation describe-stacks \
   --stack-name inf3701-extra-points \
-  --query 'Stacks[0].Outputs[?OutputKey==`WorkloadAppInstance1PrivateIp`].OutputValue' \
+  --query 'Stacks[0].Outputs[?OutputKey==`WorkloadAppInstance2PrivateIp`].OutputValue' \
   --output text)
 
 BASTION_HOST_PUBLIC_IP=$(aws cloudformation describe-stacks \
@@ -27,5 +27,5 @@ BASTION_HOST_PUBLIC_IP=$(aws cloudformation describe-stacks \
   --query 'Stacks[0].Outputs[?OutputKey==`BastionHostPublicIp`].OutputValue' \
   --output text)
 
-ssh -A -i ssh-private_key.pem -J ec2-user@$BASTION_HOST_PUBLIC_IP ec2-user@$WORKLOAD_APP_INSTANCE_1_PRIVATE_IP
+ssh -A -i ssh-private_key.pem -J ec2-user@$BASTION_HOST_PUBLIC_IP ec2-user@$WORKLOAD_APP_INSTANCE_2_PRIVATE_IP
 

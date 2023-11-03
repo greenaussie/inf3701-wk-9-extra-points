@@ -36,11 +36,14 @@ The infrastructure consists of a number of resources including:
 
 Stack outputs are used to obtain the website URL, and the bastion host IP address.
 
-Various supporting scripts are provided to deploy the CloudFormation stack, and to delete it. The scripts are in the `scripts` directory. The scripts are numbered to indicate the order in which they should be executed. The scripts are:
+Various supporting scripts are provided to deploy the CloudFormation stack, and to delete it. The scripts are in the `scripts` directory. The scripts are numbered to indicate the order in which they might be executed. The scripts are:
 
 - `scripts/010-deploy.sh` - Deploy the CloudFormation stack
 - `scripts/020-start-ssh-agent-in-cloudshell.sh` - Start the ssh-agent
 - `scripts/030-ssh-to-bastion-host.sh` - SSH to the bastion host
+- `scripts/040-ssh-to-workload-app-instance-1.sh` - SSH to the first workload application EC2 instance
+- `scripts/040-ssh-to-workload-app-instance-2.sh` - SSH to the second workload application EC2 instance
+- `scripts/040-ssh-to-workload-app-instance-3.sh` - SSH to the third workload application EC2 instance
 - `scripts/099-delete.sh` - Delete the CloudFormation stack
 
 ## Deploying the AWS Cloudformation Stack
@@ -120,7 +123,11 @@ While the stack is being deployed, you can view the progress in the AWS Console.
 
 Once the stack has been created, you can view the resources which have been created. You can see the VPC, the subnets, the route tables, the internet gateway, the NAT gateway, the security groups, and the EC2 instances.
 
-The website address is shown in the Outputs tab. Click on the link to view the website. You will see a simple web page, which is being served by the one of the three EC2 instances. Running multiple instances allows us to distribute the load across multiple instances, and also provides redundancy in case one of the instances fails
+The website address is shown in the Outputs tab. 
+
+> It takes a few minutes for the website to be available because userdata section needs to execute on at least one of the workload application EC2 instances. In a production workload we would use a more robust method to deploy the application to avoid the EC2 instances being in a state where they are not serving the website.
+
+Click on the link to view the website. You will see a simple web page, which is being served by the one of the three EC2 instances. Running multiple instances allows us to distribute the load across multiple instances, and also provides redundancy in case one of the instances fails
 
 > The website is not served over HTTPS. This is because we have not configured a certificate for the website. For a production website, we would configure a certificate, and serve the website over HTTPS.
 
