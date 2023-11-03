@@ -505,11 +505,11 @@ Outputs:
 
   WorkloadAppInstance2PrivateIp:
     Description: Private IP address of workload app instance 1
-    Value: !GetAtt WorkloadAppInstance1.PrivateIp
+    Value: !GetAtt WorkloadAppInstance2.PrivateIp
 
   WorkloadAppInstance3PrivateIp:
     Description: Private IP address of workload app instance 1
-    Value: !GetAtt WorkloadAppInstance1.PrivateIp
+    Value: !GetAtt WorkloadAppInstance3.PrivateIp
 
   WebsiteUrl:
     Description: URL of the website
