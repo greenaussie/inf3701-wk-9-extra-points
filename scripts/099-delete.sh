@@ -7,4 +7,3 @@ set -e
 
 aws cloudformation delete-stack \
   --stack-name inf3701-extra-points
-```
