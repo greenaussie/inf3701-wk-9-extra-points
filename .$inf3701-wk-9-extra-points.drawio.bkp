@@ -1,9 +1,12 @@
-<mxfile host="Electron" modified="2023-11-04T05:27:27.136Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.3 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" version="22.0.3" etag="OS280FrFsdOzKzAVRit4" type="device">
+<mxfile host="Electron" modified="2023-11-04T05:21:39.352Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.3 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" version="22.0.3" etag="vtYcFSJxuRprkkjOb6nk" type="device">
   <diagram id="nv1-fZtLTGLuRYKGbRFR" name="Page-1">
     <mxGraphModel dx="3770" dy="3028" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2336" pageHeight="1654" math="0" shadow="0">
       <root>
         <mxCell id="0" />
         <mxCell id="1" parent="0" />
+        <mxCell id="u33gjHxNaXTO0t2-VlKj-95" value="Availability Zone" style="fillColor=none;strokeColor=#147EBA;dashed=1;verticalAlign=top;fontStyle=0;fontColor=#147EBA;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="70" width="240" height="700" as="geometry" />
+        </mxCell>
         <mxCell id="u33gjHxNaXTO0t2-VlKj-94" value="Availability Zone" style="fillColor=none;strokeColor=#147EBA;dashed=1;verticalAlign=top;fontStyle=0;fontColor=#147EBA;whiteSpace=wrap;html=1;" vertex="1" parent="1">
           <mxGeometry x="780" y="60" width="240" height="700" as="geometry" />
         </mxCell>
@@ -14,7 +17,7 @@
           <mxGeometry x="800" y="480" width="200" height="260" as="geometry" />
         </mxCell>
         <mxCell id="u33gjHxNaXTO0t2-VlKj-76" value="Workload App Instance 2" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#ED7100;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.instance2;" vertex="1" parent="u33gjHxNaXTO0t2-VlKj-75">
-          <mxGeometry x="76" y="80" width="48" height="48" as="geometry" />
+          <mxGeometry x="76" y="70" width="48" height="48" as="geometry" />
         </mxCell>
         <mxCell id="u33gjHxNaXTO0t2-VlKj-89" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="20" target="u33gjHxNaXTO0t2-VlKj-81">
           <mxGeometry relative="1" as="geometry" />
@@ -44,7 +47,7 @@
           <mxGeometry x="1080" y="480" width="200" height="260" as="geometry" />
         </mxCell>
         <mxCell id="u33gjHxNaXTO0t2-VlKj-84" value="Workload App Instance 6" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#ED7100;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.instance2;" vertex="1" parent="u33gjHxNaXTO0t2-VlKj-79">
-          <mxGeometry x="76" y="170" width="48" height="48" as="geometry" />
+          <mxGeometry x="76" y="180" width="48" height="48" as="geometry" />
         </mxCell>
         <mxCell id="u33gjHxNaXTO0t2-VlKj-85" style="rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" edge="1" parent="1" source="20" target="u33gjHxNaXTO0t2-VlKj-71">
           <mxGeometry relative="1" as="geometry" />
@@ -80,22 +83,19 @@
           <mxGeometry x="490" y="250" width="40" height="40" as="geometry" />
         </mxCell>
         <mxCell id="u33gjHxNaXTO0t2-VlKj-82" value="Workload App Instance 4" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#ED7100;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.instance2;" vertex="1" parent="u33gjHxNaXTO0t2-VlKj-96">
-          <mxGeometry x="156" y="650" width="48" height="48" as="geometry" />
+          <mxGeometry x="156" y="660" width="48" height="48" as="geometry" />
         </mxCell>
         <mxCell id="u33gjHxNaXTO0t2-VlKj-81" value="Workload App Instance 5" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#ED7100;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.instance2;" vertex="1" parent="u33gjHxNaXTO0t2-VlKj-96">
-          <mxGeometry x="436" y="650" width="48" height="48" as="geometry" />
+          <mxGeometry x="436" y="660" width="48" height="48" as="geometry" />
         </mxCell>
         <mxCell id="u33gjHxNaXTO0t2-VlKj-83" value="Workload App Instance 3" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#ED7100;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.instance2;" vertex="1" parent="u33gjHxNaXTO0t2-VlKj-96">
-          <mxGeometry x="716" y="560" width="48" height="48" as="geometry" />
+          <mxGeometry x="716" y="550" width="48" height="48" as="geometry" />
         </mxCell>
         <mxCell id="u33gjHxNaXTO0t2-VlKj-71" value="Workload App Instance 1" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#ED7100;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.instance2;" vertex="1" parent="u33gjHxNaXTO0t2-VlKj-96">
-          <mxGeometry x="156" y="560" width="48" height="48" as="geometry" />
+          <mxGeometry x="156" y="550" width="48" height="48" as="geometry" />
         </mxCell>
         <mxCell id="u33gjHxNaXTO0t2-VlKj-106" value="ALB Target Group" style="fillColor=none;strokeColor=#5A6C86;dashed=1;verticalAlign=top;fontStyle=0;fontColor=#5A6C86;whiteSpace=wrap;html=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" vertex="1" parent="u33gjHxNaXTO0t2-VlKj-96">
-          <mxGeometry x="95" y="520" width="730" height="120" as="geometry" />
-        </mxCell>
-        <mxCell id="u33gjHxNaXTO0t2-VlKj-95" value="Availability Zone" style="fillColor=none;strokeColor=#147EBA;dashed=1;verticalAlign=top;fontStyle=0;fontColor=#147EBA;whiteSpace=wrap;html=1;" vertex="1" parent="u33gjHxNaXTO0t2-VlKj-96">
-          <mxGeometry x="620" y="60" width="240" height="700" as="geometry" />
+          <mxGeometry x="95" y="510" width="730" height="130" as="geometry" />
         </mxCell>
         <mxCell id="u33gjHxNaXTO0t2-VlKj-103" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="u33gjHxNaXTO0t2-VlKj-97" target="20">
           <mxGeometry relative="1" as="geometry" />
