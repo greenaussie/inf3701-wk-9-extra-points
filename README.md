@@ -105,6 +105,14 @@ Take a minute to observe how we iteratively develop infrastrucure. We start with
 git log --name-status
 ```
 
+Review the cloudformation template which defines our infrastructure
+
+```bash
+less cloudformation-templates/infrastructure.yml
+```
+
+Use arrows and PgUp/Pg down to navigate. Press the `q` key to exit the `less` command.
+
 View the deployment script, `scripts/010-deploy.sh`. It is a bash script which will deploy the CloudFormation template. It is a simple script, but it is a good idea to look at it to understand what it is doing.
 
 ```bash
@@ -149,21 +157,32 @@ The website URL is available as an output from the CloudFormation stack. You can
 
 To gain one extra mark, you can complete the following challenge:
 
-Update the cloudformation template to deploy a an additional EC2 instance in each availablity zone. 
-
-- The new EC2 instances should be added as additional targets within the target goups.
-- Re-deploy the stack to create the new EC2 instances
-
-To update the template you can use a CLI editor within CloudShell, which is called `nano`. You can open the template with the following command:
+Review the cloudformation template again and notice the commented out sections - lines 382-453, 501-506 and 596-606. 
 
 ```bash
-nano cloudformation-templates/infrastructure.yml
+less cloudformation-templates/infrastructure.yml
 ```
 
-You can navigate around the template within `nano` using the arrow keys. You can edit the template, and save it with the changes, by using the ket combinations which are displayed at the bottom of the editor's work area.
+Press the `q` key to exit the `less` command.
+
+To uncomment lines 82-453, 501-506 and 596-606 run the following command:
+
+```bash
+sed -i -r -e '382,452s/^(\s+?)#/\1/' -e '501,506s/^(\s+?)#/\1/' -e '596,606s/^(\s+)#/\1/' cloudformation-templates/infrastructure.yml
+```
+
+> The `sed` command is a stream editor. It is a very powerful tool for editing files from scripts.
+
+Review the cloudformation templates again and notice the previously commented out sections - lines 382-453, 501-506 and 596-606 - are now active.
 
 
-**To gain the extra mark, you must show the tutor that you have deployed the additional EC2 instances and they are attached to the target group:**
+```bash
+scripts/010-deploy.sh
+```
+
+Observe in the AWS Cloudformation console the stack called `inf3701-extra-points` has updated (check the events tab).
+
+**To gain the extra mark, you must show the tutor that you have updated the CloudFormation stack**
 
 ```bash
 aws elasticloadbalancingv2 describe-target-health --target-group-arn arn:aws:elasticloadbalancing:ap-southeast-2:123456789012:targetgroup/INF3701-Web-TargetGroup/1234567890123456
