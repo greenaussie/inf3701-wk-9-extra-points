@@ -108,7 +108,7 @@ git log --name-status
 Review the cloudformation template which defines our infrastructure
 
 ```bash
-less cloudformation-templates/infrastructure.yml
+less -N cloudformation-templates/infrastructure.yml
 ```
 
 Use arrows and PgUp/Pg down to navigate. Press the `q` key to exit the `less` command.
@@ -160,7 +160,7 @@ To gain one extra mark, you can complete the following challenge:
 Review the cloudformation template again and notice the commented out sections - lines 382-453, 501-506 and 596-606. 
 
 ```bash
-less cloudformation-templates/infrastructure.yml
+less -N cloudformation-templates/infrastructure.yml
 ```
 
 Press the `q` key to exit the `less` command.
@@ -175,6 +175,12 @@ sed -i -r -e '382,452s/^(\s+?)#/\1/' -e '501,506s/^(\s+?)#/\1/' -e '596,606s/^(\
 
 Review the cloudformation templates again and notice the previously commented out sections - lines 382-453, 501-506 and 596-606 - are now active.
 
+```bash
+less -N cloudformation-templates/infrastructure.yml
+```
+
+Run the deploy script again to update the stack:
+
 
 ```bash
 scripts/010-deploy.sh
@@ -184,9 +190,6 @@ Observe in the AWS Cloudformation console the stack called `inf3701-extra-points
 
 **To gain the extra mark, you must show the tutor that you have updated the CloudFormation stack**
 
-```bash
-aws elasticloadbalancingv2 describe-target-health --target-group-arn arn:aws:elasticloadbalancing:ap-southeast-2:123456789012:targetgroup/INF3701-Web-TargetGroup/1234567890123456
-```
 
 
 ### Delete the CloudFormation stack
