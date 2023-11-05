@@ -186,7 +186,11 @@ Run the deploy script again to update the stack:
 scripts/010-deploy.sh
 ```
 
-Observe in the AWS Cloudformation console the stack called `inf3701-extra-points` has updated (check the events tab).
+Observe in the AWS Cloudformation console the stack called `inf3701-extra-points` has updated (check the events tab). 
+
+When you vist the site again, any one of the six ec2 instances which are running may now serve requests. 
+
+> It takes a few minutes for the new servers to be available because userdata section needs to execute on at least one of the workload application EC2 instances. In a production workload we would use a more robust method to deploy the application to avoid the EC2 instances being in a state where they are not serving the website.
 
 **To gain the extra mark, you must show the tutor that you have updated the CloudFormation stack**
 
