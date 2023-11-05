@@ -16,7 +16,9 @@ The tool we have chosen to use is [AWS CloudFormation](https://aws.amazon.com/cl
 
 The template `inf3701-wk-9-extra-points/cloudformation-templates/infrastructure.yml` is an example of a CloudFormation template. It describes the following infrastructure, whose resources have been covered in the course INF3701. This is a diagram of the infrastructure:
 
-![Diagram of the infrastructure](inf3701-wk-9-extra-points.png)
+![Diagram of the infrastructure](animated-diagram.gif)
+
+A non-animated version of the diagram is in the file [inf3701-wk-9-extra-points/diagrams/infrastructure.png](inf3701-wk-9-extra-points/diagrams/infrastructure.png). The source diagram file is `inf3701-wk-9-extra-points/diagrams/infrastructure.drawio`. The diagram was created using [draw.io](https://draw.io).
 
 The infrastructure consists of a number of resources including:
 
