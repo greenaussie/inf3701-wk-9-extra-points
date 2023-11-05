@@ -31,3 +31,9 @@ View outputs of stack to get URL and check works in browser.
 Scale out horizontally
 
 **Show tutor to get the mark!**
+
+## Tidy up
+
+```bash
+scripts/099-delete.sh
+```
