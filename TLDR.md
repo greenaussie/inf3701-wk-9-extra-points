@@ -24,8 +24,10 @@ scripts/010-deploy.sh
 
 View outputs of stack to get URL and check works in browser. 
 
-**Show tutor!**
+**Show tutor to get the mark!**
 
 ## Extra mark 2
 
 Scale out horizontally
+
+**Show tutor to get the mark!**
