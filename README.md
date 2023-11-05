@@ -18,7 +18,7 @@ The template `inf3701-wk-9-extra-points/cloudformation-templates/infrastructure.
 
 ![Diagram of the infrastructure](animated-diagram.gif)
 
-A non-animated version of the diagram is in the file [inf3701-wk-9-extra-points/diagrams/infrastructure.png](inf3701-wk-9-extra-points.png). The source diagram file is `inf3701-wk-9-extra-points.drawio`. The diagram was created using [draw.io](https://draw.io).
+A non-animated version of the diagram is in the file [inf3701-wk-9-extra-points.png](inf3701-wk-9-extra-points.png). The source diagram file is `inf3701-wk-9-extra-points.drawio`. The diagram was created using [draw.io](https://draw.io).
 
 The infrastructure consists of a number of resources including:
 
