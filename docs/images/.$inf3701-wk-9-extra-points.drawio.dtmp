@@ -1,4 +1,4 @@
-<mxfile host="Electron" modified="2023-11-06T07:16:21.430Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.3 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="9el29F3QTJbgFD4FSh4d" version="22.0.3" type="device">
+<mxfile host="Electron" modified="2023-11-06T07:17:17.037Z" agent="Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/22.0.3 Chrome/114.0.5735.289 Electron/25.8.4 Safari/537.36" etag="3zb2RMD7_uNtlqvay_KK" version="22.0.3" type="device">
   <diagram id="nv1-fZtLTGLuRYKGbRFR" name="Page-1">
     <mxGraphModel dx="2074" dy="2868" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="2336" pageHeight="1654" math="0" shadow="0">
       <root>
@@ -191,14 +191,14 @@
         <mxCell id="180" value="" style="sketch=0;points=[[0,0,0],[0.25,0,0],[0.5,0,0],[0.75,0,0],[1,0,0],[0,1,0],[0.25,1,0],[0.5,1,0],[0.75,1,0],[1,1,0],[0,0.25,0],[0,0.5,0],[0,0.75,0],[1,0.25,0],[1,0.5,0],[1,0.75,0]];outlineConnect=0;gradientDirection=north;fillColor=#f8cecc;strokeColor=#b85450;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;shape=mxgraph.aws4.resourceIcon;resIcon=mxgraph.aws4.command_line_interface;opacity=50;" parent="165" vertex="1">
           <mxGeometry x="310" y="-303" width="53" height="53" as="geometry" />
         </mxCell>
-        <mxCell id="zngTBr7UdGZKEQpUTGpr-180" value="Untitled Layer" parent="0" />
-        <mxCell id="zngTBr7UdGZKEQpUTGpr-181" value="EC2 Workload&lt;br&gt;Instance 4" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#D45B07;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.instance2;" vertex="1" parent="zngTBr7UdGZKEQpUTGpr-180">
+        <mxCell id="zngTBr7UdGZKEQpUTGpr-180" value="Additional EC2" parent="0" />
+        <mxCell id="zngTBr7UdGZKEQpUTGpr-181" value="EC2 Workload&lt;br&gt;Instance 4" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#D45B07;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.instance2;" parent="zngTBr7UdGZKEQpUTGpr-180" vertex="1">
           <mxGeometry x="375" y="790" width="48" height="48" as="geometry" />
         </mxCell>
-        <mxCell id="zngTBr7UdGZKEQpUTGpr-182" value="EC2 Workload&lt;br&gt;Instance 5" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#D45B07;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.instance2;" vertex="1" parent="zngTBr7UdGZKEQpUTGpr-180">
+        <mxCell id="zngTBr7UdGZKEQpUTGpr-182" value="EC2 Workload&lt;br&gt;Instance 5" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#D45B07;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.instance2;" parent="zngTBr7UdGZKEQpUTGpr-180" vertex="1">
           <mxGeometry x="815" y="790" width="48" height="48" as="geometry" />
         </mxCell>
-        <mxCell id="zngTBr7UdGZKEQpUTGpr-183" value="EC2 Workload&lt;br&gt;Instance 6" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#D45B07;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.instance2;" vertex="1" parent="zngTBr7UdGZKEQpUTGpr-180">
+        <mxCell id="zngTBr7UdGZKEQpUTGpr-183" value="EC2 Workload&lt;br&gt;Instance 6" style="sketch=0;outlineConnect=0;fontColor=#232F3E;gradientColor=none;fillColor=#D45B07;strokeColor=none;dashed=0;verticalLabelPosition=bottom;verticalAlign=top;align=center;html=1;fontSize=12;fontStyle=0;aspect=fixed;pointerEvents=1;shape=mxgraph.aws4.instance2;" parent="zngTBr7UdGZKEQpUTGpr-180" vertex="1">
           <mxGeometry x="1258" y="790" width="48" height="48" as="geometry" />
         </mxCell>
       </root>
