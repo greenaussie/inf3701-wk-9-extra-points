@@ -131,24 +131,23 @@ While the stack is being deployed, you can view the progress in the AWS Console.
 
 > You may see other stacks which have already been deployed. These are stacks which have been deployed to prepare the learner environment.
 
+![cloudformation console](docs/images/cloudformation.png)
+
 Once the stack has been created, you can view the resources which have been created. You can see the VPC, the subnets, the route tables, the internet gateway, the NAT gateway, the security groups, and the EC2 instances.
 
 The website address is shown in the Outputs tab. 
 
+![website url](docs/images/website-url.png)
+
 > It takes a few minutes for the website to be available because userdata section needs to execute on at least one of the workload application EC2 instances. In a production workload we would use a more robust method to deploy the application to avoid the EC2 instances being in a state where they are not serving the website.
+
+### View the website
 
 Click on the link to view the website. You will see a simple web page, which is being served by the one of the three EC2 instances. Running multiple instances allows us to distribute the load across multiple instances, and also provides redundancy in case one of the instances fails
 
 > The website is not served over HTTPS. This is because we have not configured a certificate for the website. For a production website, we would configure a certificate, and serve the website over HTTPS.
 
 **To gain the marking points for this lab, you must show the tutor that you have deployed the CloudFormation stack, and that you can view the website.**
-
-
-### View the website
-
-The new website URL is accessed through the Application Load Balancer.
-
-The website URL is available as an output from the CloudFormation stack. You can view the outputs by selecting the stack in the AWS Console, and clicking on the Outputs tab.
 
 
 ### Challenge (1 extra mark) - horizontally scale the application resources
@@ -192,9 +191,9 @@ When you vist the site again, any one of the six ec2 instances which are running
 
 > It takes a few minutes for the new servers to be available because userdata section needs to execute on at least one of the workload application EC2 instances. In a production workload we would use a more robust method to deploy the application to avoid the EC2 instances being in a state where they are not serving the website.
 
+![website](docs/images/website-loaded.png)
+
 **To gain the extra mark, you must show the tutor that you have updated the CloudFormation stack**
-
-
 
 ### Delete the CloudFormation stack
 
@@ -209,3 +208,6 @@ scripts/099-delete.sh
 ```
 Alternatively you can select the stack in the AWS Console, and click the Delete button.
 
+![delete stack](docs/images/delete-stack.png)
+
+## All done!
