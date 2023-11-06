@@ -16,7 +16,9 @@ The tool we have chosen to use is [AWS CloudFormation](https://aws.amazon.com/cl
 
 The template `inf3701-wk-9-extra-points/cloudformation-templates/infrastructure.yml` is an example of a CloudFormation template. It describes the following infrastructure, whose resources have been covered in the course INF3701. This is a diagram of the infrastructure:
 
-![Diagram of the infrastructure](inf3701-wk-9-extra-points.png)
+![Diagram of the infrastructure](docs/images/animated-diagram.gif)
+
+A non-animated version of the diagram is in the file [inf3701-wk-9-extra-points.png](docs/images/inf3701-wk-9-extra-points.png). The source diagram file is `docs/images/inf3701-wk-9-extra-points.drawio`. The diagram was created using [draw.io](https://draw.io).
 
 The infrastructure consists of a number of resources including:
 
@@ -60,7 +62,7 @@ Within you **[AWS Acadamy learner AWS account](https://www.awsacademy.com/)**, w
 
 Open the AWS CloudShell by clicking on the icon in the top right of the AWS Console. It looks like this:
 
-![AWS CloudShell icon](cloudshell-link-in-aws-console.png)
+![AWS CloudShell icon](docs/images/cloudshell-link-in-aws-console.png)
 
 Open the template and the diagram next to each other in separate tabs or Windows, so you can see how the template describes the infrastructure.
 
@@ -72,7 +74,7 @@ We can show the IAM role attached to the AWS CloudShell by typing the following 
 aws sts get-caller-identity
 ```
 
-![Example reponse from AWS CLI](aws-sts-get-caller-identity.png)
+![Example reponse from AWS CLI](docs/images/aws-sts-get-caller-identity.png)
 
 On the command line, clone the GitHub repository containing the resources for this lab:
 
@@ -80,7 +82,7 @@ On the command line, clone the GitHub repository containing the resources for th
 git clone https://github.com/greenaussie/inf3701-wk-9-extra-points.git
 ```
 
-![git clone command](git-clone.png)
+![git clone command](docs/images/git-clone.png)
 
 We can see the files have copied with a command such as this:
 
@@ -103,6 +105,14 @@ Take a minute to observe how we iteratively develop infrastrucure. We start with
 git log --name-status
 ```
 
+Review the cloudformation template which defines our infrastructure
+
+```bash
+less -N cloudformation-templates/infrastructure.yml
+```
+
+Use arrows and PgUp/Pg down to navigate. Press the `q` key to exit the `less` command.
+
 View the deployment script, `scripts/010-deploy.sh`. It is a bash script which will deploy the CloudFormation template. It is a simple script, but it is a good idea to look at it to understand what it is doing.
 
 ```bash
@@ -121,11 +131,17 @@ While the stack is being deployed, you can view the progress in the AWS Console.
 
 > You may see other stacks which have already been deployed. These are stacks which have been deployed to prepare the learner environment.
 
+![cloudformation console](docs/images/cloudformation.png)
+
 Once the stack has been created, you can view the resources which have been created. You can see the VPC, the subnets, the route tables, the internet gateway, the NAT gateway, the security groups, and the EC2 instances.
 
 The website address is shown in the Outputs tab. 
 
+![website url](docs/images/website-url.png)
+
 > It takes a few minutes for the website to be available because userdata section needs to execute on at least one of the workload application EC2 instances. In a production workload we would use a more robust method to deploy the application to avoid the EC2 instances being in a state where they are not serving the website.
+
+### View the website
 
 Click on the link to view the website. You will see a simple web page, which is being served by the one of the three EC2 instances. Running multiple instances allows us to distribute the load across multiple instances, and also provides redundancy in case one of the instances fails
 
@@ -134,39 +150,50 @@ Click on the link to view the website. You will see a simple web page, which is 
 **To gain the marking points for this lab, you must show the tutor that you have deployed the CloudFormation stack, and that you can view the website.**
 
 
-### View the website
-
-The new website URL is accessed through the Application Load Balancer.
-
-The website URL is available as an output from the CloudFormation stack. You can view the outputs by selecting the stack in the AWS Console, and clicking on the Outputs tab.
-
-
 ### Challenge (1 extra mark) - horizontally scale the application resources
 
 > The term Horizontal Scaling refers to adding more resources to a system, such as adding more EC2 instances to a web server. This is in contrast to Vertical Scaling, which refers to adding more resources to an existing resource, such as adding more memory to an EC2 instance.
 
 To gain one extra mark, you can complete the following challenge:
 
-Update the cloudformation template to deploy a an additional EC2 instance in each availablity zone. 
-
-- The new EC2 instances should be added as additional targets within the target goups.
-- Re-deploy the stack to create the new EC2 instances
-
-To update the template you can use a CLI editor within CloudShell, which is called `nano`. You can open the template with the following command:
+Review the cloudformation template again and notice the commented out sections - lines 382-453, 501-506 and 596-606. 
 
 ```bash
-nano cloudformation-templates/infrastructure.yml
+less -N cloudformation-templates/infrastructure.yml
 ```
 
-You can navigate around the template within `nano` using the arrow keys. You can edit the template, and save it with the changes, by using the ket combinations which are displayed at the bottom of the editor's work area.
+Press the `q` key to exit the `less` command.
 
-
-**To gain the extra mark, you must show the tutor that you have deployed the additional EC2 instances and they are attached to the target group:**
+To uncomment lines 82-453, 501-506 and 596-606 run the following command:
 
 ```bash
-aws elasticloadbalancingv2 describe-target-health --target-group-arn arn:aws:elasticloadbalancing:ap-southeast-2:123456789012:targetgroup/INF3701-Web-TargetGroup/1234567890123456
+sed -i -r -e '382,452s/^(\s+?)#/\1/' -e '501,506s/^(\s+?)#/\1/' -e '596,606s/^(\s+)#/\1/' cloudformation-templates/infrastructure.yml
 ```
 
+> The `sed` command is a stream editor. It is a very powerful tool for editing files from scripts.
+
+Review the cloudformation templates again and notice the previously commented out sections - lines 382-453, 501-506 and 596-606 - are now active.
+
+```bash
+less -N cloudformation-templates/infrastructure.yml
+```
+
+Run the deploy script again to update the stack:
+
+
+```bash
+scripts/010-deploy.sh
+```
+
+Observe in the AWS Cloudformation console the stack called `inf3701-extra-points` has updated (check the events tab). 
+
+When you vist the site again, any one of the six ec2 instances which are running may now serve requests. 
+
+> It takes a few minutes for the new servers to be available because userdata section needs to execute on at least one of the workload application EC2 instances. In a production workload we would use a more robust method to deploy the application to avoid the EC2 instances being in a state where they are not serving the website.
+
+![website](docs/images/website-loaded.png)
+
+**To gain the extra mark, you must show the tutor that you have updated the CloudFormation stack**
 
 ### Delete the CloudFormation stack
 
@@ -181,3 +208,6 @@ scripts/099-delete.sh
 ```
 Alternatively you can select the stack in the AWS Console, and click the Delete button.
 
+![delete stack](docs/images/delete-stack.png)
+
+## All done!

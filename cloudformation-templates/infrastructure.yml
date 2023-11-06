@@ -379,6 +379,78 @@ Resources:
         systemctl enable nginx
         echo -e "<html><head><title>INFS3701 demo IAC</title></head><style>html { color-scheme: light dark; } body { width: 35em; margin: 0 auto; font-family: Tahoma, Verdana, Arial, sans-serif; }</style><body><h1>INFS3701 demo IAC</h1><p>INSTANCE_ID: $INSTANCE_ID</p><p>AZ: $AZ</p><p>IPV4: $IPV4</p></body></html>" > /usr/share/nginx/html/index.html
 
+  #WorkloadAppInstance4:
+  #  Type: AWS::EC2::Instance
+  #  Properties:
+  #    ImageId: !Ref Ami
+  #    InstanceType: !Ref InstanceType
+  #    KeyName: !Ref WorkloadKeyPair
+  #    SecurityGroupIds:
+  #      - !Ref WorkloadSecurityGroup
+  #    SubnetId: !Ref SubnetPrivateA
+  #    Tags:
+  #         - Key: Name
+  #           Value: WorkloadAppInstance4
+  #    UserData: !Base64 |
+  #      #!/bin/bash
+  #      INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
+  #      AZ=$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone)
+  #      IPV4=$(curl -s http://169.254.169.254/latest/meta-data/local-ipv4)
+  #      DATE=$(date)
+  #      yum update -y
+  #      amazon-linux-extras install nginx1 -y
+  #      systemctl start nginx
+  #      systemctl enable nginx
+  #      echo -e "<html><head><title>INFS3701 demo IAC</title></head><style>html { color-scheme: light dark; } body { width: 35em; margin: 0 auto; font-family: Tahoma, Verdana, Arial, sans-serif; }</style><body><h1>INFS3701 demo IAC</h1><p>INSTANCE_ID: $INSTANCE_ID</p><p>AZ: $AZ</p><p>IPV4: $IPV4</p></body></html>" > /usr/share/nginx/html/index.html
+
+  #WorkloadAppInstance5:
+  #  Type: AWS::EC2::Instance
+  #  Properties:
+  #    ImageId: !Ref Ami
+  #    InstanceType: !Ref InstanceType
+  #    KeyName: !Ref WorkloadKeyPair
+  #    SecurityGroupIds:
+  #      - !Ref WorkloadSecurityGroup
+  #    SubnetId: !Ref SubnetPrivateB
+  #    Tags:
+  #         - Key: Name
+  #           Value: WorkloadAppInstance5
+  #    UserData: !Base64 |
+  #      #!/bin/bash
+  #      INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
+  #      AZ=$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone)
+  #      IPV4=$(curl -s http://169.254.169.254/latest/meta-data/local-ipv4)
+  #      DATE=$(date)
+  #      yum update -y
+  #      amazon-linux-extras install nginx1 -y
+  #      systemctl start nginx
+  #      systemctl enable nginx
+  #      echo -e "<html><head><title>INFS3701 demo IAC</title></head><style>html { color-scheme: light dark; } body { width: 35em; margin: 0 auto; font-family: Tahoma, Verdana, Arial, sans-serif; }</style><body><h1>INFS3701 demo IAC</h1><p>INSTANCE_ID: $INSTANCE_ID</p><p>AZ: $AZ</p><p>IPV4: $IPV4</p></body></html>" > /usr/share/nginx/html/index.html
+
+  #WorkloadAppInstance6:
+  #  Type: AWS::EC2::Instance
+  #  Properties:
+  #    ImageId: !Ref Ami
+  #    InstanceType: !Ref InstanceType
+  #    KeyName: !Ref WorkloadKeyPair
+  #    SecurityGroupIds:
+  #      - !Ref WorkloadSecurityGroup
+  #    SubnetId: !Ref SubnetPrivateC
+  #    Tags:
+  #         - Key: Name
+  #           Value: WorkloadAppInstance6
+  #    UserData: !Base64 |
+  #      #!/bin/bash
+  #      INSTANCE_ID=$(curl -s http://169.254.169.254/latest/meta-data/instance-id)
+  #      AZ=$(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone)
+  #      IPV4=$(curl -s http://169.254.169.254/latest/meta-data/local-ipv4)
+  #      DATE=$(date)
+  #      yum update -y
+  #      amazon-linux-extras install nginx1 -y
+  #      systemctl start nginx
+  #      systemctl enable nginx
+  #      echo -e "<html><head><title>INFS3701 demo IAC</title></head><style>html { color-scheme: light dark; } body { width: 35em; margin: 0 auto; font-family: Tahoma, Verdana, Arial, sans-serif; }</style><body><h1>INFS3701 demo IAC</h1><p>INSTANCE_ID: $INSTANCE_ID</p><p>AZ: $AZ</p><p>IPV4: $IPV4</p></body></html>" > /usr/share/nginx/html/index.html
+
   ApplicationLoadBalancer:
     Type: AWS::ElasticLoadBalancingV2::LoadBalancer
     Properties:
@@ -426,6 +498,12 @@ Resources:
           Port: 80
         - Id: !Ref WorkloadAppInstance3
           Port: 80
+        #- Id: !Ref WorkloadAppInstance4
+        #  Port: 80
+        #- Id: !Ref WorkloadAppInstance5
+        #  Port: 80
+        #- Id: !Ref WorkloadAppInstance6
+        #  Port: 80
 
   ApplicationLoadBalancerHttpListener:
     Type: AWS::ElasticLoadBalancingV2::Listener
@@ -514,6 +592,18 @@ Outputs:
   WorkloadAppInstance3PrivateIp:
     Description: Private IP address of workload app instance 1
     Value: !GetAtt WorkloadAppInstance3.PrivateIp
+
+  #WorkloadAppInstance4PrivateIp:
+  #  Description: Private IP address of workload app instance 1
+  #  Value: !GetAtt WorkloadAppInstance4.PrivateIp
+
+  #WorkloadAppInstance5PrivateIp:
+  #  Description: Private IP address of workload app instance 1
+  #  Value: !GetAtt WorkloadAppInstance5.PrivateIp
+
+  #WorkloadAppInstance6PrivateIp:
+  #  Description: Private IP address of workload app instance 1
+  #  Value: !GetAtt WorkloadAppInstance6.PrivateIp
 
   WebsiteUrl:
     Description: URL of the website
