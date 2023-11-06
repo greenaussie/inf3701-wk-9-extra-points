@@ -16,9 +16,9 @@ The tool we have chosen to use is [AWS CloudFormation](https://aws.amazon.com/cl
 
 The template `inf3701-wk-9-extra-points/cloudformation-templates/infrastructure.yml` is an example of a CloudFormation template. It describes the following infrastructure, whose resources have been covered in the course INF3701. This is a diagram of the infrastructure:
 
-![Diagram of the infrastructure](animated-diagram.gif)
+![Diagram of the infrastructure](docs/images/animated-diagram.gif)
 
-A non-animated version of the diagram is in the file [inf3701-wk-9-extra-points.png](inf3701-wk-9-extra-points.png). The source diagram file is `inf3701-wk-9-extra-points.drawio`. The diagram was created using [draw.io](https://draw.io).
+A non-animated version of the diagram is in the file [inf3701-wk-9-extra-points.png](docs/images/inf3701-wk-9-extra-points.png). The source diagram file is `docs/images/inf3701-wk-9-extra-points.drawio`. The diagram was created using [draw.io](https://draw.io).
 
 The infrastructure consists of a number of resources including:
 
@@ -62,7 +62,7 @@ Within you **[AWS Acadamy learner AWS account](https://www.awsacademy.com/)**, w
 
 Open the AWS CloudShell by clicking on the icon in the top right of the AWS Console. It looks like this:
 
-![AWS CloudShell icon](cloudshell-link-in-aws-console.png)
+![AWS CloudShell icon](docs/images/cloudshell-link-in-aws-console.png)
 
 Open the template and the diagram next to each other in separate tabs or Windows, so you can see how the template describes the infrastructure.
 
@@ -74,7 +74,7 @@ We can show the IAM role attached to the AWS CloudShell by typing the following 
 aws sts get-caller-identity
 ```
 
-![Example reponse from AWS CLI](aws-sts-get-caller-identity.png)
+![Example reponse from AWS CLI](docs/images/aws-sts-get-caller-identity.png)
 
 On the command line, clone the GitHub repository containing the resources for this lab:
 
@@ -82,7 +82,7 @@ On the command line, clone the GitHub repository containing the resources for th
 git clone https://github.com/greenaussie/inf3701-wk-9-extra-points.git
 ```
 
-![git clone command](git-clone.png)
+![git clone command](docs/images/git-clone.png)
 
 We can see the files have copied with a command such as this:
 
